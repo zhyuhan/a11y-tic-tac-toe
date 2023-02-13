@@ -18,14 +18,20 @@ export default function Board({
   const numCols = 3
 
   function handleCellClick(row: number, col: number) {
-    if (isDisabled) return
     onMove({ player, row, col })
   }
 
   return (
-    <div className="h-96 w-96 divide-y divide-gray-900 border border-gray-900">
+    <div
+      role="grid"
+      className="h-96 w-96 divide-y divide-gray-900 border border-gray-900"
+    >
       {Array.from({ length: numRows }).map((_, row) => (
-        <div className="flex divide-x divide-gray-900" key={`r${row + 1}`}>
+        <div
+          role="row"
+          className="flex divide-x divide-gray-900"
+          key={`r${row + 1}`}
+        >
           {Array.from({ length: numCols }).map((_, col) => (
             <Cell
               row={row}

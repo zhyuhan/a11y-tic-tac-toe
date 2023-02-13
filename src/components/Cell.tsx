@@ -15,16 +15,28 @@ export default function Cell({
   isDisabled,
   onCellClick,
 }: CellProps) {
+  function handleCellClick() {
+    if (isDisabled) return
+    onCellClick(row, col)
+  }
+
   return (
-    <button
-      aria-label={`Cell at row ${row + 1} column ${col + 1}`}
-      className={`aspect-square h-full w-full text-6xl${
-        isDisabled ? ' cursor-not-allowed' : ''
-      }`}
-      disabled={isDisabled || !!value}
-      onClick={() => onCellClick(row, col)}
+    <div
+      role="gridcell"
+      className={`} flex aspect-square h-full w-full items-center justify-center
+      text-6xl`}
+      onClick={handleCellClick}
     >
-      {value}
-    </button>
+      <button
+        type="button"
+        aria-label={`Row ${row + 1} Column ${col + 1}, ${
+          value === null ? 'Empty' : `Value ${value}`
+        }`}
+        aria-disabled={isDisabled || !!value}
+        className={`h-full w-full${isDisabled ? ' cursor-not-allowed' : ''}`}
+      >
+        {value}
+      </button>
+    </div>
   )
 }
