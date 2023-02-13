@@ -5,7 +5,6 @@ export default function Navbar() {
   const router = useRouter()
 
   const isActive = (path: string) => router.pathname === path
-  console.log(isActive('/history'))
 
   return (
     <nav>
@@ -16,13 +15,6 @@ export default function Navbar() {
           }`}
         >
           <Link href="/">Home</Link>
-        </li>
-        <li
-          className={`rounded-md px-3 py-2 hover:bg-stone-300${
-            isActive('/games') ? ' underline' : ''
-          }`}
-        >
-          <Link href="/games">Games</Link>
         </li>
       </ul>
     </nav>
