@@ -1,5 +1,5 @@
 import { supabase } from '@/lib/supabaseClient'
-import { nanoid } from 'nanoid'
+import humanId from 'human-id'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(
@@ -20,7 +20,8 @@ export default async function handler(
   }
 
   if (req.method === 'POST') {
-    const id = nanoid()
+    const id = humanId({ separator: '-', capitalize: false })
+
     const { error } = await supabase.from('games').insert({ id })
 
     if (error) {

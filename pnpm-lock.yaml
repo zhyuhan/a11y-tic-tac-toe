@@ -12,7 +12,7 @@ specifiers:
   eslint-config-next: 13.1.6
   eslint-config-prettier: ^8.6.0
   eslint-plugin-jsx-a11y: ^6.7.1
-  nanoid: ^4.0.1
+  human-id: ^4.0.0
   next: 13.1.6
   postcss: ^8.4.21
   prettier: ^2.8.4
@@ -31,7 +31,7 @@ dependencies:
   date-fns: 2.29.3
   eslint: 8.33.0
   eslint-config-next: 13.1.6_4vsywjlpuriuw3tl5oq6zy5a64
-  nanoid: 4.0.1
+  human-id: 4.0.0
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -1442,6 +1442,10 @@ packages:
     dependencies:
       function-bind: 1.1.1
 
+  /human-id/4.0.0:
+    resolution: {integrity: sha512-pui0xZRgeAlaRt0I9r8N2pNlbNmluvn71EfjKRpM7jOpZbuHe5mm76r67gcprjw/Nd+GpvB9C3OlTbh7ZKLg7A==}
+    dev: false
+
   /ignore/5.2.4:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
     engines: {node: '>= 4'}
@@ -1737,12 +1741,6 @@ packages:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
-
-  /nanoid/4.0.1:
-    resolution: {integrity: sha512-udKGtCCUafD3nQtJg9wBhRP3KMbPglUsgV5JVsXhvyBs/oefqb4sqMEhKBBgqZncYowu58p1prsZQBYvAj/Gww==}
-    engines: {node: ^14 || ^16 || >=18}
-    hasBin: true
-    dev: false
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
