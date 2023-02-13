@@ -2,7 +2,6 @@ lockfileVersion: 5.4
 
 specifiers:
   '@axe-core/react': ^4.6.0
-  '@next/font': 13.1.6
   '@supabase/supabase-js': ^2.7.1
   '@types/node': 18.13.0
   '@types/react': 18.0.27
@@ -25,7 +24,6 @@ specifiers:
   typescript: 4.9.5
 
 dependencies:
-  '@next/font': 13.1.6
   '@supabase/supabase-js': 2.7.1
   '@types/node': 18.13.0
   '@types/react': 18.0.27
@@ -106,10 +104,6 @@ packages:
     resolution: {integrity: sha512-o7cauUYsXjzSJkay8wKjpKJf2uLzlggCsGUkPu3lP09Pv97jYlekTC20KJrjQKmSv5DXV0R/uks2ZXhqjNkqAw==}
     dependencies:
       glob: 7.1.7
-    dev: false
-
-  /@next/font/13.1.6:
-    resolution: {integrity: sha512-AITjmeb1RgX1HKMCiA39ztx2mxeAyxl4ljv2UoSBUGAbFFMg8MO7YAvjHCgFhD39hL7YTbFjol04e/BPBH5RzQ==}
     dev: false
 
   /@next/swc-android-arm-eabi/13.1.6:
