@@ -82,14 +82,14 @@ export default function Game({ id, prevMoves }: GameProps) {
         <h1 className="sr-only">Game {id}</h1>
 
         {!!winner && (
-          <p role="alert" className="absolute -top-12 text-3xl">
+          <span role="alert" className="absolute -top-12 text-3xl">
             🎉 {winner} wins! 🎉
-          </p>
+          </span>
         )}
         {isDraw && (
-          <p role="alert" className="absolute -top-12 text-3xl">
+          <span role="alert" className="absolute -top-12 text-3xl">
             🤝 Draw! 🤝
-          </p>
+          </span>
         )}
 
         <div className="grid md:grid-cols-10 md:grid-rows-5">
