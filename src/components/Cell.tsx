@@ -25,7 +25,6 @@ export default function Cell({
       role="gridcell"
       className={`} flex aspect-square h-full w-full items-center justify-center
       text-6xl`}
-      onClick={handleCellClick}
     >
       <button
         type="button"
@@ -34,6 +33,7 @@ export default function Cell({
         }`}
         aria-disabled={isDisabled || !!value}
         className={`h-full w-full${isDisabled ? ' cursor-not-allowed' : ''}`}
+        onClick={handleCellClick}
       >
         {value}
       </button>
