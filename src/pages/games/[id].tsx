@@ -83,12 +83,16 @@ export default function Game({ id, prevMoves }: GameProps) {
 
         {!!winner && (
           <span role="alert" className="absolute -top-12 text-3xl">
-            🎉 {winner} wins! 🎉
+            <span className="sr-only">Game over:</span>
+            <span aria-hidden={true}>🎉</span> {winner} wins!{' '}
+            <span aria-hidden={true}>🎉</span>
           </span>
         )}
         {isDraw && (
           <span role="alert" className="absolute -top-12 text-3xl">
-            🤝 Draw! 🤝
+            <span className="sr-only">Game over:</span>
+            <span aria-hidden={true}>🤝</span> Draw!{' '}
+            <span aria-hidden={true}>🤝</span>
           </span>
         )}
 
