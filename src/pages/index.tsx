@@ -8,7 +8,7 @@ import useSWR from 'swr'
 export default function Home() {
   const router = useRouter()
 
-  const { data: games } = useSWR<DbGame[]>('/api/games')
+  const { data: games, isLoading } = useSWR<DbGame[]>('/api/games')
 
   function handleCreateGame() {
     fetch('/api/games', { method: 'POST' })
@@ -35,44 +35,46 @@ export default function Home() {
           New game
         </button>
 
-        {games?.length === 0 ? (
+        {!isLoading && games?.length === 0 ? (
           <p className="text-center">No games yet. Create one!</p>
         ) : (
-          <>
-            <h2 className="text-lg font-medium">Played Games</h2>
-            <table className="table-auto">
-              <thead>
-                <tr>
-                  <th className="px-4 py-1">ID</th>
-                  <th className="px-4 py-1">Time created</th>
-                  <th className="px-4 py-1">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {games?.map(({ id, created_at, winner }) => (
-                  <tr key={id}>
-                    <td className="px-4 py-1">
-                      <Link href={`/games/${id}`} className="underline">
-                        {id}
-                      </Link>
-                    </td>
-                    <td className="px-4 py-1">
-                      {formatDistanceToNow(new Date(created_at))} ago
-                    </td>
-                    <td className="px-4 py-1 text-center">
-                      {winner === 'X'
-                        ? 'X won'
-                        : winner === 'O'
-                        ? 'O won'
-                        : winner === 'draw'
-                        ? 'Draw'
-                        : 'In progress'}
-                    </td>
+          games && (
+            <>
+              <h2 className="text-lg font-medium">Played Games</h2>
+              <table className="table-auto">
+                <thead>
+                  <tr>
+                    <th className="px-4 py-1">ID</th>
+                    <th className="px-4 py-1">Time created</th>
+                    <th className="px-4 py-1">Status</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </>
+                </thead>
+                <tbody>
+                  {games?.map(({ id, created_at, winner }) => (
+                    <tr key={id}>
+                      <td className="px-4 py-1">
+                        <Link href={`/games/${id}`} className="underline">
+                          {id}
+                        </Link>
+                      </td>
+                      <td className="px-4 py-1">
+                        {formatDistanceToNow(new Date(created_at))} ago
+                      </td>
+                      <td className="px-4 py-1 text-center">
+                        {winner === 'X'
+                          ? 'X won'
+                          : winner === 'O'
+                          ? 'O won'
+                          : winner === 'draw'
+                          ? 'Draw'
+                          : 'In progress'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+          )
         )}
       </main>
     </>
