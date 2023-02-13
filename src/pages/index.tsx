@@ -26,7 +26,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="mx-auto flex max-w-screen-md flex-col items-center justify-center gap-4 py-12">
+      <main className="mx-auto flex max-w-screen-md flex-col items-center justify-center gap-8 py-12">
+        <h1 className="sr-only">A11y Tic Tac Toe</h1>
+
         <button
           type="button"
           className="rounded-sm bg-stone-200 px-2 py-2 hover:bg-stone-300"
@@ -39,41 +41,39 @@ export default function Home() {
           <p className="text-center">No games yet. Create one!</p>
         ) : (
           games && (
-            <>
-              <h2 className="text-lg font-medium">Played Games</h2>
-              <table className="table-auto">
-                <thead>
-                  <tr>
-                    <th className="px-4 py-1">ID</th>
-                    <th className="px-4 py-1">Time created</th>
-                    <th className="px-4 py-1">Status</th>
+            <table className="table-auto">
+              <caption className="py-2 text-lg font-medium">Past games</caption>
+              <thead>
+                <tr>
+                  <th className="px-4 py-1">ID</th>
+                  <th className="px-4 py-1">Time created</th>
+                  <th className="px-4 py-1">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {games?.map(({ id, created_at, winner }) => (
+                  <tr key={id}>
+                    <td className="px-4 py-1">
+                      <Link href={`/games/${id}`} className="underline">
+                        {id}
+                      </Link>
+                    </td>
+                    <td className="px-4 py-1">
+                      {formatDistanceToNow(new Date(created_at))} ago
+                    </td>
+                    <td className="px-4 py-1 text-center">
+                      {winner === 'X'
+                        ? 'X won'
+                        : winner === 'O'
+                        ? 'O won'
+                        : winner === 'draw'
+                        ? 'Draw'
+                        : 'In progress'}
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {games?.map(({ id, created_at, winner }) => (
-                    <tr key={id}>
-                      <td className="px-4 py-1">
-                        <Link href={`/games/${id}`} className="underline">
-                          {id}
-                        </Link>
-                      </td>
-                      <td className="px-4 py-1">
-                        {formatDistanceToNow(new Date(created_at))} ago
-                      </td>
-                      <td className="px-4 py-1 text-center">
-                        {winner === 'X'
-                          ? 'X won'
-                          : winner === 'O'
-                          ? 'O won'
-                          : winner === 'draw'
-                          ? 'Draw'
-                          : 'In progress'}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </>
+                ))}
+              </tbody>
+            </table>
           )
         )}
       </main>

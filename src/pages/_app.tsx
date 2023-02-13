@@ -20,7 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
         fetcher: fetcher,
       }}
     >
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
       <Component {...pageProps} />
     </SWRConfig>
   )

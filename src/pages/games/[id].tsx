@@ -79,10 +79,13 @@ export default function Game({ id, prevMoves }: GameProps) {
         <title>Game {id}</title>
       </Head>
       <main className="relative mx-auto flex max-w-screen-md flex-col items-center gap-4 px-4 py-16">
-        <h2 className="absolute top-4 text-2xl">
-          {!!winner && `🎉 ${winner} wins! 🎉`}
-          {isDraw && '🤝 Draw! 🤝'}
-        </h2>
+        <h1 className="sr-only">Game {id}</h1>
+
+        {!!winner && (
+          <h2 className="absolute top-4 text-2xl">🎉 ${winner} wins! 🎉</h2>
+        )}
+        {isDraw && <h2 className="absolute top-4 text-2xl">🤝 Draw! 🤝</h2>}
+
         <div className="grid md:grid-cols-10 md:grid-rows-5">
           <div className="flex items-center md:col-span-6 md:row-span-5">
             <Board
@@ -98,6 +101,7 @@ export default function Game({ id, prevMoves }: GameProps) {
               <button
                 type="button"
                 className="block rounded-sm bg-stone-200 px-2 py-1 disabled:bg-white"
+                aria-pressed={playingAs === 'X'}
                 disabled={playingAs === 'X'}
                 onClick={() => setPlayingAs('X')}
               >
@@ -122,6 +126,7 @@ export default function Game({ id, prevMoves }: GameProps) {
               <button
                 type="button"
                 className="block rounded-sm bg-stone-100 px-2 py-1 disabled:bg-white"
+                aria-pressed={playingAs === 'O'}
                 disabled={playingAs === 'O'}
                 onClick={() => setPlayingAs('O')}
               >

@@ -17,6 +17,7 @@ export default function Cell({
 }: CellProps) {
   return (
     <button
+      aria-label={`Cell at row ${row + 1} column ${col + 1}`}
       className={`aspect-square h-full w-full text-6xl${
         isDisabled ? ' cursor-not-allowed' : ''
       }`}
