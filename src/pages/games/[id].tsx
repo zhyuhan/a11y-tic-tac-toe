@@ -97,11 +97,13 @@ export default function Game({ id, prevMoves }: GameProps) {
             {!isDraw && !winner && (
               <button
                 type="button"
-                className="block rounded-sm bg-stone-200 px-2 py-1 disabled:bg-white"
-                disabled={playingAs === 'X'}
+                className="block rounded-sm bg-stone-200 px-2 py-1 aria-disabled:bg-white"
+                aria-disabled={playingAs === 'X'}
                 onClick={() => setPlayingAs('X')}
               >
-                {playingAs === 'X' ? 'Playing as X' : 'Play as X'}
+                <span aria-live="polite">
+                  {playingAs === 'X' ? 'Playing as X' : 'Play as X'}
+                </span>
               </button>
             )}
           </div>
@@ -111,7 +113,7 @@ export default function Game({ id, prevMoves }: GameProps) {
             <ol
               className="list-decimal"
               aria-live="assertive"
-              aria-relevant="additions text"
+              aria-relevant="additions"
             >
               {history.map((move, index) => (
                 <li key={index} className="py-1">
@@ -125,11 +127,13 @@ export default function Game({ id, prevMoves }: GameProps) {
             {!isDraw && !winner && (
               <button
                 type="button"
-                className="block rounded-sm bg-stone-100 px-2 py-1 disabled:bg-white"
-                disabled={playingAs === 'O'}
+                className="block rounded-sm bg-stone-100 px-2 py-1 aria-disabled:bg-white"
+                aria-disabled={playingAs === 'O'}
                 onClick={() => setPlayingAs('O')}
               >
-                {playingAs === 'O' ? 'Playing as O' : 'Play as O'}
+                <span aria-live="polite">
+                  {playingAs === 'O' ? 'Playing as O' : 'Play as O'}
+                </span>
               </button>
             )}
           </div>
