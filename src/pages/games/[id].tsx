@@ -82,9 +82,15 @@ export default function Game({ id, prevMoves }: GameProps) {
         <h1 className="sr-only">Game {id}</h1>
 
         {!!winner && (
-          <h2 className="absolute top-4 text-2xl">🎉 ${winner} wins! 🎉</h2>
+          <p role="alert" className="absolute -top-12 text-3xl">
+            🎉 {winner} wins! 🎉
+          </p>
         )}
-        {isDraw && <h2 className="absolute top-4 text-2xl">🤝 Draw! 🤝</h2>}
+        {isDraw && (
+          <p role="alert" className="absolute -top-12 text-3xl">
+            🤝 Draw! 🤝
+          </p>
+        )}
 
         <div className="grid md:grid-cols-10 md:grid-rows-5">
           <div className="flex items-center md:col-span-6 md:row-span-5">
@@ -112,7 +118,11 @@ export default function Game({ id, prevMoves }: GameProps) {
 
           <div className="flex flex-col items-center justify-center md:col-span-3 md:col-start-8 md:row-span-3 md:row-start-2">
             <h2 className="text-lg font-medium">History</h2>
-            <ol className="list-decimal">
+            <ol
+              className="list-decimal"
+              aria-live="assertive"
+              aria-relevant="additions text"
+            >
               {history.map((move, index) => (
                 <li key={index} className="py-1">
                   {move.player} played row {move.row + 1} column {move.col + 1}
