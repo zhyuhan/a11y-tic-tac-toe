@@ -7,4 +7,10 @@ type Move = {
   col: number
 }
 
-export type { Player, CellValue, BoardState, Move }
+type DbGame = {
+  id: string
+  created_at: string
+  winner?: Player
+}
+
+export type { BoardState, CellValue, DbGame, Move, Player }
