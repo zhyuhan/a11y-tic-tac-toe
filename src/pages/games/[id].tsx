@@ -57,7 +57,7 @@ export default function Game({ id, prevMoves }: GameProps) {
   }, [id, playingAs])
 
   const winner = checkWin(boardState)
-  const isDraw = checkDraw(boardState)
+  const isDraw = !winner && checkDraw(boardState)
 
   if (winner) {
     commitWinner({ id, winner })
