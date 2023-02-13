@@ -93,21 +93,11 @@ export default function Game({ id, prevMoves }: GameProps) {
         )}
 
         <div className="grid md:grid-cols-10 md:grid-rows-5">
-          <div className="flex items-center md:col-span-6 md:row-span-5">
-            <Board
-              player={player}
-              state={boardState}
-              isDisabled={playingAs !== player || !!winner}
-              onMove={handleMove}
-            />
-          </div>
-
-          <div className="col-span-3 flex items-center justify-center md:col-start-8">
+          <div className="col-span-3 flex items-center justify-center">
             {!isDraw && !winner && (
               <button
                 type="button"
                 className="block rounded-sm bg-stone-200 px-2 py-1 disabled:bg-white"
-                aria-pressed={playingAs === 'X'}
                 disabled={playingAs === 'X'}
                 onClick={() => setPlayingAs('X')}
               >
@@ -116,7 +106,7 @@ export default function Game({ id, prevMoves }: GameProps) {
             )}
           </div>
 
-          <div className="flex flex-col items-center justify-center md:col-span-3 md:col-start-8 md:row-span-3 md:row-start-2">
+          <div className="flex flex-col items-center justify-center md:col-span-3 md:row-span-3 md:row-start-2">
             <h2 className="text-lg font-medium">History</h2>
             <ol
               className="list-decimal"
@@ -131,18 +121,26 @@ export default function Game({ id, prevMoves }: GameProps) {
             </ol>
           </div>
 
-          <div className="col-span-3 flex items-center justify-center md:col-start-8 md:row-start-5">
+          <div className="col-span-3 flex items-center justify-center md:row-start-5">
             {!isDraw && !winner && (
               <button
                 type="button"
                 className="block rounded-sm bg-stone-100 px-2 py-1 disabled:bg-white"
-                aria-pressed={playingAs === 'O'}
                 disabled={playingAs === 'O'}
                 onClick={() => setPlayingAs('O')}
               >
                 {playingAs === 'O' ? 'Playing as O' : 'Play as O'}
               </button>
             )}
+          </div>
+
+          <div className="flex items-center md:col-span-6 md:col-start-5 md:row-span-5">
+            <Board
+              player={player}
+              state={boardState}
+              isDisabled={playingAs !== player || !!winner}
+              onMove={handleMove}
+            />
           </div>
         </div>
       </main>
