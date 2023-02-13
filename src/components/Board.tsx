@@ -1,5 +1,5 @@
+import type { BoardState, Move, Player } from '@/types'
 import Cell from './Cell'
-import type { Player, BoardState, Move } from '@/types'
 
 type BoardProps = {
   player: Player
@@ -31,6 +31,7 @@ export default function Board({
               row={row}
               col={col}
               value={state[row][col]}
+              isDisabled={isDisabled}
               onCellClick={handleCellClick}
               key={`c${col + 1}`}
             />
