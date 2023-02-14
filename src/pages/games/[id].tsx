@@ -78,7 +78,10 @@ export default function Game({ id, prevMoves }: GameProps) {
       <Head>
         <title>Game {id}</title>
       </Head>
-      <main className="relative mx-auto flex max-w-screen-md flex-col items-center gap-4 px-4 py-16">
+      <main
+        id="content"
+        className="relative mx-auto flex max-w-screen-md flex-col items-center gap-4 px-4 py-16"
+      >
         <h1 className="sr-only">Game {id}</h1>
 
         {!!winner && (

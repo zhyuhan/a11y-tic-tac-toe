@@ -26,7 +26,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="mx-auto flex max-w-screen-md flex-col items-center justify-center gap-8 py-12">
+      <main
+        id="content"
+        className="mx-auto flex max-w-screen-md flex-col items-center justify-center gap-8 py-12"
+      >
         <h1 className="sr-only">A11y Tic Tac Toe</h1>
 
         <button

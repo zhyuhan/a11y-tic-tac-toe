@@ -20,6 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
         fetcher: fetcher,
       }}
     >
+      <a href="#content" className="sr-only">
+        Skip to main content
+      </a>
       <header>
         <Navbar />
       </header>
